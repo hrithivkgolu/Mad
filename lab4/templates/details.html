@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+    {% if error %}
+        <h1>Wrong ID or Empty Input</h1>
+    {% elif type == 'student' %}
+        <h1>Student Details</h1>
+        <table border="2" id="student-details-table">
+            <tr><th>Student Id</th><th>Course Id</th><th>Marks</th></tr>
+            {% for index, row in data.iterrows() %}
+            <tr><td>{{row['Student id']}}</td><td>{{row['Course id']}}</td><td>{{row['Marks']}}</td></tr>
+            {% endfor %}
+            <tr><td colspan="2" style="text-align:center">Total Marks</td><td>{{total}}</td></tr>
+        </table>
+    {% elif type == 'course' %}
+        <h1>Course Details</h1>
+        <table border="2" id="course-details-table">
+            <tr><th>Average Marks</th><th>Maximum Marks</th></tr>
+            <tr><td>{{avg}}</td><td>{{max}}</td></tr>
+        </table>
+    {% endif %}
+    <br>
+    <a href="/">Go Back</a>
+</body>
+</html>
